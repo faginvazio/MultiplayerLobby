@@ -9,6 +9,8 @@ public class TestScript : MonoBehaviour
         DebugLogConsole.AddCommand("ListLobbies", "List Lobbies", ListLobbies);
         DebugLogConsole.AddCommand<string>("JoinLobbyByCode", "Join Lobby by code", JoinLobbyByCode);
         DebugLogConsole.AddCommand("QuickJoinLobby", "Quick Join Lobby", QuickJoinLobby);
+        DebugLogConsole.AddCommand<string>("UpdateLobbyGameMode", "Update Lobby GameMode", UpdateLobbyGameMode);
+        DebugLogConsole.AddCommand("PrintPlayers", "Print Players", PrintPlayers);
         //DebugLogConsole.AddCommand<string, GameObject>("child", "Creates a new child object under " + name, AddChild);
     }
 
@@ -30,6 +32,16 @@ public class TestScript : MonoBehaviour
     private void QuickJoinLobby()
     {
         TestLobby.Instance.QuickJoinLobby();
+    }
+
+    private void UpdateLobbyGameMode(string gameMode)
+    {
+        TestLobby.Instance.UpdateLobbyGameMode(gameMode);
+    }
+
+    private void PrintPlayers()
+    {
+        TestLobby.Instance.PrintPlayers();
     }
 
     //private GameObject AddChild(string name)
