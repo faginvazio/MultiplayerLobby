@@ -7,7 +7,8 @@ public class TestScript : MonoBehaviour
     {
         DebugLogConsole.AddCommand("CreateLobby", "Create Lobby", CreateLobby);
         DebugLogConsole.AddCommand("ListLobbies", "List Lobbies", ListLobbies);
-        //DebugLogConsole.AddCommand<Vector3>("cube", "Creates a cube at specified position", CreateCubeAt);
+        DebugLogConsole.AddCommand<string>("JoinLobbyByCode", "Join Lobby by code", JoinLobbyByCode);
+        DebugLogConsole.AddCommand("QuickJoinLobby", "Quick Join Lobby", QuickJoinLobby);
         //DebugLogConsole.AddCommand<string, GameObject>("child", "Creates a new child object under " + name, AddChild);
     }
 
@@ -21,11 +22,15 @@ public class TestScript : MonoBehaviour
         TestLobby.Instance.ListLobbies();
     }
 
+    private void JoinLobbyByCode(string lobbyCode)
+    {
+        TestLobby.Instance.JoinLobbyByCode(lobbyCode);
+    }
 
-    //public static void CreateCubeAt(Vector3 position)
-    //{
-    //    GameObject.CreatePrimitive(PrimitiveType.Cube).transform.position = position;
-    //}
+    private void QuickJoinLobby()
+    {
+        TestLobby.Instance.QuickJoinLobby();
+    }
 
     //private GameObject AddChild(string name)
     //{
