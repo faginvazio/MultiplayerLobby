@@ -11,7 +11,11 @@ public class TestScript : MonoBehaviour
         DebugLogConsole.AddCommand("QuickJoinLobby", "Quick Join Lobby", QuickJoinLobby);
         DebugLogConsole.AddCommand<string>("UpdateLobbyGameMode", "Update Lobby GameMode", UpdateLobbyGameMode);
         DebugLogConsole.AddCommand("PrintPlayers", "Print Players", PrintPlayers);
-        //DebugLogConsole.AddCommand<string, GameObject>("child", "Creates a new child object under " + name, AddChild);
+        DebugLogConsole.AddCommand<string>("UpdatePlayerName", "Update PlayerName", UpdatePlayerName);
+        DebugLogConsole.AddCommand("LeaveLobby", "Leave Lobby", LeaveLobby);
+        DebugLogConsole.AddCommand("KickPlayer", "Kick Player", KickPlayer);
+        DebugLogConsole.AddCommand("MigrateLobbyHost", "Migrate LobbyHost", MigrateLobbyHost);
+        DebugLogConsole.AddCommand("DeleteLobby", "Delete Lobby", DeleteLobby);
     }
 
     private void CreateLobby()
@@ -44,11 +48,28 @@ public class TestScript : MonoBehaviour
         TestLobby.Instance.PrintPlayers();
     }
 
-    //private GameObject AddChild(string name)
-    //{
-    //    GameObject child = new GameObject(name);
-    //    child.transform.SetParent(transform);
+    private void UpdatePlayerName(string newPlayerName)
+    {
+        TestLobby.Instance.UpdatePlayerName(newPlayerName);
+    }
 
-    //    return child;
-    //}
+    private void LeaveLobby()
+    {
+        TestLobby.Instance.LeaveLobby();
+    }
+
+    private void KickPlayer()
+    {
+        TestLobby.Instance.KickPlayer();
+    }
+
+    private void MigrateLobbyHost()
+    {
+        TestLobby.Instance.MigrateLobbyHost();
+    }
+
+    private void DeleteLobby()
+    {
+        TestLobby.Instance.DeleteLobby();
+    }
 }
